@@ -1,22 +1,32 @@
-NAME = libft.a
+NAME_SERVER = server
+NAME_CLIENT = client
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = server.c client.c libft_utils.c
+SRCS_SERVER = server.c
+SRCS_CLIENT = client.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS_SERVER = $(SRCS_SERVER:.c=.o)
+OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(NAME)
+all: $(NAME_SERVER) $(NAME_CLIENT)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME_SERVER): $(OBJS_SERVER)
+	$(CC) $(CFLAGS) $(OBJS_SERVER) -o $(NAME_SERVER)
+
+$(NAME_CLIENT): $(OBJS_CLIENT)
+	$(CC) $(CFLAGS) $(OBJS_CLIENT) -o $(NAME_CLIENT)
+
 clean:
-	$(RM) $(OBJS)
+	rm -f $(OBJS_SERVER) $(OBJS_CLIENT)
+
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME_SERVER) $(NAME_CLIENT)
+
 re: fclean all
 
 .PHONY: all clean fclean re
