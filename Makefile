@@ -4,8 +4,8 @@ NAME_CLIENT = client
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS_SERVER = server.c
-SRCS_CLIENT = client.c
+SRCS_SERVER = server.c libft_utils.c
+SRCS_CLIENT = client.c libft_utils.c
 
 OBJS_SERVER = $(SRCS_SERVER:.c=.o)
 OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)

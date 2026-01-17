@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bsevigen <bsevigen@student.42istanbul.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/17 18:03:34 by bsevigen          #+#    #+#             */
+/*   Updated: 2026/01/17 18:03:46 by bsevigen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minitalk.h"
+
 int	ft_atoi(const char *nptr)
 {
 	int		result;
@@ -21,6 +35,7 @@ int	ft_atoi(const char *nptr)
 	result *= sign;
 	return (result);
 }
+
 void	ft_putnbr(int n)
 {
 	char	c;
@@ -39,4 +54,16 @@ void	ft_putnbr(int n)
 		ft_putnbr(n / 10);
 	c = (n % 10) + '0';
 	write(1, &c, 1);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
